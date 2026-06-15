@@ -1,0 +1,6 @@
+{
+  "name": "CFA Prep Engine",
+  "description": "An adaptive Study System and visual Growth Tree for the full 93-module CFA Level I curriculum, featuring interactive study schedules, practice quizzes, analytics, and an custom AI tutor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

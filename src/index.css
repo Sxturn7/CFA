@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Lora", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-primary-green: #5A6344;
+  --color-light-green: #A3B18A;
+  --color-warm-bg: #FDFCF8;
+  --color-warm-card: #F9F8F0;
+  --color-warm-border: #E5E2D0;
+  --color-warm-beige: #F1EFE0;
+  --color-warm-beige-dark: #D9D5C3;
+  --color-text-main: #3D3B30;
+  --color-text-dark: #4A3728;
+  --color-accent-rose: #94625A;
+}
+
+:root {
+  /* Dynamic Theme Overrides - Default Sage Garden */
+  --theme-bg: #FDFCF8;
+  --theme-card: #F9F8F0;
+  --theme-border: #E5E2D0;
+  --theme-beige: #F1EFE0;
+  --theme-beige-dark: #D9D5C3;
+  --theme-text-main: #3D3B30;
+  --theme-text-dark: #4A3728;
+  --theme-accent: #5A6344;
+  --theme-accent-hover: #4a5137;
+  --theme-accent-light: rgba(163, 177, 138, 0.3);
+  --theme-accent-rose: #94625A;
+  --theme-header-bg: rgba(253, 252, 248, 0.7);
+  --theme-input-bg: #ffffff;
+
+  /* Natural Tones Subject Palette mapping */
+  --quant-color: #5A6344;       /* Olive/green */
+  --econ-color: #7D7859;        /* Khaki brown-green */
+  --portfolio-color: #A3B18A;   /* Sage green */
+  --corporate-color: #8C8665;   /* Olive brown */
+  --fsa-color: #4A3728;         /* Deep wood brown */
+  --equity-color: #B08968;      /* Warm chestnut */
+  --fixed-color: #94625A;       /* Terracotta red */
+  --derivatives-color: #8D7B68;  /* Warm clay */
+  --alt-color: #BDB9A2;         /* Slate sand */
+  --ethics-color: #6E735B;      /* Moss green */
+}
+
+/* Global scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--theme-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--theme-beige-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--theme-accent);
+}
+
+/* Page background, selections, & base styling */
+body, 
+.min-h-screen, 
+html {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text-main) !important;
+  font-family: "Inter", system-ui, sans-serif !important;
+}
+
+/* Selection aesthetics */
+::selection {
+  background-color: var(--theme-accent-light) !important;
+  color: var(--theme-text-dark) !important;
+}
+
+/* Titles and Display headings font overrides */
+h1, h2, h3, .font-serif, .font-serif-display {
+  font-family: "Lora", "Playfair Display", Georgia, serif !important;
+  color: var(--theme-text-dark) !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Main layouts, headers and panes theme integrations */
+header {
+  background-color: var(--theme-header-bg) !important;
+  backdrop-filter: blur(8px) !important;
+  border-color: var(--theme-border) !important;
+}
+
+/* Make sure header texts are readable and dark */
+header h1, header p, header span {
+  color: var(--theme-text-dark) !important;
+}
+
+/* Left sidebar panel, workspace list panels and secondary containers */
+aside, 
+.bg-slate-900,
+.bg-slate-900\/60,
+.bg-slate-900\/85,
+.bg-slate-900\/90,
+.bg-amber-950\/20,
+.bg-slate-950,
+.bg-slate-950\/50,
+.bg-slate-950\/60,
+.bg-slate-950\/80 {
+  background-color: var(--theme-card) !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text-main) !important;
+  box-shadow: none !important;
+}
+
+/* Inner block containers and elements */
+.bg-slate-800,
+.bg-slate-800\/80,
+.bg-slate-800\/50,
+.bg-slate-800\/40,
+.bg-slate-700,
+.bg-slate-700\/40,
+.bg-slate-850 {
+  background-color: var(--theme-beige) !important;
+  border-color: var(--theme-beige-dark) !important;
+  color: var(--theme-text-main) !important;
+}
+
+/* Button & Active components - primary brand colors */
+.bg-blue-600,
+.bg-indigo-600,
+.bg-blue-500,
+.bg-indigo-500,
+.bg-indigo-950\/40,
+.bg-gradient-to-r.from-blue-600.to-indigo-600,
+.bg-gradient-to-tr.from-blue-600.to-indigo-500 {
+  background: var(--theme-accent) !important;
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-bg) !important;
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+}
+
+.bg-blue-600:hover,
+.bg-indigo-600:hover,
+.bg-blue-500:hover,
+.bg-indigo-500:hover {
+  background: var(--theme-accent-hover) !important;
+  background-color: var(--theme-accent-hover) !important;
+}
+
+/* Selection and hover items */
+.hover\:bg-slate-800:hover, 
+.hover\:bg-slate-850:hover,
+.hover\:bg-slate-900:hover,
+.hover\:bg-slate-800\/20:hover {
+  background-color: var(--theme-border) !important;
+  color: var(--theme-text-dark) !important;
+}
+
+/* Border lines and boundaries across components */
+.border,
+.border-t,
+.border-b,
+.border-l,
+.border-r,
+.border-slate-850,
+.border-slate-800,
+.border-slate-800\/50,
+.border-slate-800\/80,
+.border-slate-700,
+.border-[#E5E2D0] {
+  border-color: var(--theme-border) !important;
+}
+
+/* Text selections & subtle elements */
+.text-slate-100,
+.text-slate-250,
+.text-slate-200,
+.text-slate-300 {
+  color: var(--theme-text-main) !important;
+}
+.text-slate-400,
+.text-slate-500 {
+  color: var(--theme-text-main) !important;
+  opacity: 0.8;
+}
+.text-slate-600 {
+  color: var(--theme-beige-dark) !important;
+}
+
+/* Specific icons & accents */
+.text-blue-400,
+.text-blue-500,
+.text-indigo-400,
+.text-indigo-500,
+.text-sky-400,
+.text-sky-500 {
+  color: var(--theme-accent) !important;
+}
+
+/* Secondary alerts or metrics */
+.text-emerald-400, .text-emerald-500 {
+  color: var(--theme-accent) !important;
+}
+.bg-emerald-950\/40, .bg-emerald-950\/20 {
+  background-color: var(--theme-beige) !important;
+  border-color: var(--theme-accent) !important;
+}
+
+/* Warnings and Overdue elements */
+.text-rose-400, .text-rose-500, .text-red-400 {
+  color: var(--theme-accent-rose) !important;
+}
+.bg-rose-950\/40, .bg-red-950\/40 {
+  background-color: var(--theme-bg) !important;
+  border-color: var(--theme-accent-rose) !important;
+}
+
+/* Input boxes, selectors, and dynamic forms styling */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input,
+textarea,
+select {
+  background-color: var(--theme-input-bg) !important;
+  border: 1px solid var(--theme-beige-dark) !important;
+  color: var(--theme-text-main) !important;
+  border-radius: 8px !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--theme-accent) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px var(--theme-accent-light) !important;
+}
+
+/* Tabs styles in navigation */
+.border-blue-500, .border-indigo-500 {
+  border-color: var(--theme-accent) !important;
+}
+.text-blue-400 {
+  color: var(--theme-accent) !important;
+}
+
+/* Fix static colors in components (e.g. custom visual items) */
+.text-amber-400, .text-amber-500 {
+  color: var(--theme-text-main) !important;
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
