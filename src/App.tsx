@@ -163,7 +163,7 @@ const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
   localStorage.setItem(`cfa_progress_${email}`, JSON.stringify(updatedProgress));
   localStorage.setItem(`cfa_logs_${email}`, JSON.stringify(updatedLogs));
 };
-  };
+ 
 
   const handleAuthSubmit = (e: React.FormEvent) => {
     e.preventDefault();
