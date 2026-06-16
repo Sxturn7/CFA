@@ -141,9 +141,30 @@ export default function App() {
 
   const saveData = (updatedProfile: UserProfile, updatedProgress: Record<string, ModuleProgress>, updatedLogs: ActivityLog[]) => {
     if (!email) return;
-    localStorage.setItem(`cfa_profile_${email}`, JSON.stringify(updatedProfile));
-    localStorage.setItem(`cfa_progress_${email}`, JSON.stringify(updatedProgress));
-    localStorage.setItem(`cfa_logs_${email}`, JSON.stringify(updatedLogs));
+    import { supabase } from './supabaseClient';
+
+const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
+  if (!email) return;
+
+  // 1. SAVE PROFILE
+  const { error: profileError } = await supabase
+    .from('profiles')
+    .upsert({
+      email: updatedProfile.email,
+      target_exam_date: updatedProfile.targetExamDate,
+      study_start_date: updatedProfile.studyStartDate,
+      daily_target_hours: updatedProfile.dailyTargetHours
+    });
+
+  if (profileError) {
+    console.error('Profile error:', profileError);
+  }
+
+  // (keep localStorage for now as backup)
+  localStorage.setItem(`cfa_profile_${email}`, JSON.stringify(updatedProfile));
+  localStorage.setItem(`cfa_progress_${email}`, JSON.stringify(updatedProgress));
+  localStorage.setItem(`cfa_logs_${email}`, JSON.stringify(updatedLogs));
+};
   };
 
   const handleAuthSubmit = (e: React.FormEvent) => {
