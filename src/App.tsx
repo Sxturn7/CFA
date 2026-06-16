@@ -144,7 +144,6 @@ export default function App() {
 const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
   if (!email) return;
 
-  // 1. SAVE PROFILE
   const { error: profileError } = await supabase
     .from('profiles')
     .upsert({
@@ -158,7 +157,6 @@ const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
     console.error('Profile error:', profileError);
   }
 
-  // (keep localStorage for now as backup)
   localStorage.setItem(`cfa_profile_${email}`, JSON.stringify(updatedProfile));
   localStorage.setItem(`cfa_progress_${email}`, JSON.stringify(updatedProgress));
   localStorage.setItem(`cfa_logs_${email}`, JSON.stringify(updatedLogs));
