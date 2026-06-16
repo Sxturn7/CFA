@@ -140,9 +140,6 @@ export default function App() {
     }
   }, [signedIn, isOnboarded, userProfile]);
 
-  const saveData = (updatedProfile: UserProfile, updatedProgress: Record<string, ModuleProgress>, updatedLogs: ActivityLog[]) => {
-    if (!email) return;
-    import { supabase } from './supabaseClient';
 
 const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
   if (!email) return;
