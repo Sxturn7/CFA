@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { supabase } from '../supabaseClient';
+import { supabase } from './supabaseClient';
 import { UserProfile, Subject, ModuleProgress, ActivityLog, ModuleStatus, AppNotification } from "./types";
 import { CURRICULUM, FLAT_MODULES, getModuleById } from "./curriculum";
 import Dashboard from "./components/Dashboard";
