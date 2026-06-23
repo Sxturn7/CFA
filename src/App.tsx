@@ -17,7 +17,7 @@ import { BookOpen, Clock, Activity, Calendar, LayoutDashboard, Brain, HelpCircle
 
 export default function App() {
   const [email, setEmail] = useState<string>("");
-  const [signedIn, setSignedIn] = useState<boolean>(false);
+  const [signedIn, setSignedIn] = useState<boolean>(true);
   const [userProfile, setUserProfile] = useState<UserProfile>({
     email: "",
     createdAt: new Date().toISOString(),
