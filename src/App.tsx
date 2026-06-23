@@ -1,4 +1,4 @@
-
+return <div style={{color: "white"}}>APP IS RUNNING</div>;
 import React, { useState, useEffect } from "react";
 import { supabase } from './supabaseClient';
 import { UserProfile, Subject, ModuleProgress, ActivityLog, ModuleStatus, AppNotification } from "./types";
