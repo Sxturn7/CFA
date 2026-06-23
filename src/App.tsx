@@ -1,4 +1,3 @@
-return <div style={{color: "white"}}>APP IS RUNNING</div>;
 import React, { useState, useEffect } from "react";
 import { supabase } from './supabaseClient';
 import { UserProfile, Subject, ModuleProgress, ActivityLog, ModuleStatus, AppNotification } from "./types";
@@ -16,6 +15,7 @@ import { AppTheme, THEME_PRESETS, applyTheme } from "./theme";
 import { BookOpen, Clock, Activity, Calendar, LayoutDashboard, Brain, HelpCircle, LogOut, Eye, EyeOff, Bell, Sparkles, Palette } from "lucide-react";
 
 export default function App() {
+   return <div style={{color: "white"}}>APP IS RUNNING</div>;
   const [email, setEmail] = useState<string>("");
   const [signedIn, setSignedIn] = useState<boolean>(true);
   const [userProfile, setUserProfile] = useState<UserProfile>({
