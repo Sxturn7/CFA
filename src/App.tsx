@@ -43,7 +43,7 @@ export default function App() {
   const [isDesignCustomizerOpen, setIsDesignCustomizerOpen] = useState<boolean>(false);
 
   // Onboarding parameters targeting initial login/signup
-  const [isOnboarded, setIsOnboarded] = useState<boolean>(false);
+  const [isOnboarded, setIsOnboarded] = useState<boolean>(true);
   const [tempOnboardDate, setTempOnboardDate] = useState<string>("");
   const [tempOnboardHours, setTempOnboardHours] = useState<number>(2);
 
