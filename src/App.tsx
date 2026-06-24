@@ -15,11 +15,6 @@ import { AppTheme, THEME_PRESETS, applyTheme } from "./theme";
 import { BookOpen, Clock, Activity, Calendar, LayoutDashboard, Brain, HelpCircle, LogOut, Eye, EyeOff, Bell, Sparkles, Palette } from "lucide-react";
 
 export default function App() {
-return (
-  <div style={{ background: "black", color: "white", minHeight: "100vh" }}>
-    APP IS RUNNING
-  </div>
-);
   const [email, setEmail] = useState<string>("");
   const [signedIn, setSignedIn] = useState<boolean>(false);
   const [userProfile, setUserProfile] = useState<UserProfile>({
