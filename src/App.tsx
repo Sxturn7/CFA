@@ -146,15 +146,18 @@ const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
 
   const { error: profileError } = await supabase
     .from('profiles')
-    .upsert({
-      email: updatedProfile.email,
-      target_exam_date: updatedProfile.targetExamDate,
-      study_start_date: updatedProfile.studyStartDate,
-      daily_target_hours: updatedProfile.dailyTargetHours
-    });
+    .upsert(
+      {
+        email: updatedProfile.email,
+        target_exam_date: updatedProfile.targetExamDate,
+        study_start_date: updatedProfile.studyStartDate,
+        daily_target_hours: updatedProfile.dailyTargetHours
+      },
+      { onConflict: 'email' } // 👈 Right here after the data object!
+    );
 
   if (profileError) {
-    console.error('Profile error:', profileError);
+    console.error('Profile error:', profileError.message);
   }
 
   localStorage.setItem(`cfa_profile_${email}`, JSON.stringify(updatedProfile));
