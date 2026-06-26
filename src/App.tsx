@@ -851,59 +851,32 @@ const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
             </button>
           </div>
 
-          {/* Render Active selected workspace component */}
-          <div className="focus-out-outline animate-fadeIn">
-            {activeTab === "dashboard" && (
-              <Dashboard
-                userProfile={userProfile}
-                setUserProfile={handleUpdateProfile}
-                subjects={CURRICULUM}
-                progress={progress}
-                activityLogs={activityLogs}
-                onLogStudySession={handleLogStudySession}
-              />
-            )}
-
-            {activeTab === "curriculum" && (
-              <ModuleList
-                subjects={CURRICULUM}
-                progress={progress}
-                onChangeModuleStatus={handleChangeModuleStatus}
-                onChangeModuleNotes={handleChangeModuleNotes}
-                onRecordQuizScore={handleRecordQuizScore}
-                onProgressRevisionCycle={handleProgressRevisionCycle}
-              />
-            )}
-
-            {activeTab === "quiz" && (
-              <QuizPane
-                subjects={CURRICULUM}
-                progress={progress}
-                onRecordQuizScore={handleRecordQuizScore}
-              />
-            )}
-
-            {activeTab === "advisor" && (
-              <AiAdvisor
-                userProfile={userProfile}
-                subjects={CURRICULUM}
-                progress={progress}
-                activityLogs={activityLogs}
-                onUpdateProfile={(updated) => {
-                  setUserProfile(updated);
-                  saveData(updated, progress, activityLogs);
-                }}
-              />
-            )}
-
-            {activeTab === "growth" && (
-              <GrowthTree
-                subjects={CURRICULUM}
-                progress={progress}
-                totalStudyTime={activityLogs.reduce((sum, log) => sum + log.durationMinutes, 0)}
-              />
-            )}
-          </div>
+        
+         {/* Render Active selected workspace component */}
+<div className="focus-out-outline animate-fadeIn">
+  {activeTab === "dashboard" && (
+    <Dashboard 
+      profile={userProfile} 
+      logs={activityLogs} 
+      onLogSession={handleLogStudySession} 
+    />
+  )}
+  {activeTab === "curriculum" && (
+    <ModuleList 
+      tracking={progress} 
+      onStatusChange={handleChangeModuleStatus} 
+    />
+  )}
+  {activeTab === "quiz" && (
+    <QuizPane 
+      onQuizComplete={(modId, score) => handleChangeModuleStatus(modId, "completed" as any)} 
+    />
+  )}
+  {activeTab === "advisor" && <AiAdvisor />}
+  {activeTab === "growth" && (
+    <GrowthTree tracking={progress} />
+  )}
+</div>
           
           <AiBotWidget
             userProfile={userProfile}
