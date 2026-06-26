@@ -852,7 +852,7 @@ const saveData = async (updatedProfile, updatedProgress, updatedLogs) => {
           </div>
 
         
-         {/* Render Active selected workspace component */}
+        {/* Render Active selected workspace component */}
 <div className="focus-out-outline animate-fadeIn">
   {activeTab === "dashboard" && (
     <Dashboard 
